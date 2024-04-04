@@ -1,11 +1,90 @@
-import html from './app.html?raw';
+import html from "./app.html?raw";
 
-export const App = (elementId) =>{
+let palabra = " ";
+let intentos = 0;
+const boton = true;
 
-  (()=>{
-    const app = document.createElement('div');
-    app.innerHTML = html
-    document.querySelector(elementId).append( app )
-  })()
+export const App = (elementId) => {
+  (() => {
+    const app = document.createElement("div");
+    app.innerHTML = html;
+    document.querySelector(elementId).append(app);
+  })();
 
-}
+  //referencias HTML
+  /**
+   * @type {HTMLElement}
+   */
+  const opciones = document.querySelector(".option__position");
+  const game__option = document.querySelector(".game__option");
+  const option__close = document.querySelector(".option__close");
+  const game__star = document.querySelector(".game__star");
+  const iniciar__juego = document.querySelector("#iniciar__juego");
+  const star__position = document.querySelector(".star__position");
+  const game__input = document.querySelector("#game__input");
+  const winer__position = document.querySelector(".winer__position");
+  const game__send = document.querySelector(".game__send");
+  const winner = document.querySelector(".winner");
+  const game__abc = document.querySelectorAll(".game__abc .letter");
+  const incrementar = document.querySelector(".incrementar");
+  const lost__position = document.querySelector('.lost__position')
+  const lost = document.querySelector('.lost')
+
+  //listeners
+  game__option.addEventListener("click", () => {
+    opciones.style.display = "inline";
+  });
+
+  option__close.addEventListener("click", () => {
+    opciones.style.display = "none";
+  });
+
+  iniciar__juego.addEventListener("click", () => {
+    if (game__star.value) {
+      palabra = game__star.value;
+      star__position.style.display = "none";
+      game__send.disabled = false;
+      game__input.disabled = false;
+      intentos = 0
+      incrementar.textContent = 0
+      palabra = ""
+    }
+  });
+
+  game__send.addEventListener("click", () => {
+    if (game__input.value === game__star.value) {
+      winer__position.style.display = "inline";
+      game__send.disabled = true;
+      game__input.disabled = true;
+    }else if (intentos < 7) {
+      intentos++;
+      incrementar.textContent = intentos;
+    }else if(intentos === 7){
+      lost__position.style.display = 'inline'
+      palabra = "";
+      game__star.value = "";
+      game__input.value = "";
+      game__send.disabled = true;
+      game__input.disabled = true;
+    }
+  });
+
+  winner.addEventListener("click", () => {
+    if ((winer__position.style.display = "none")) {
+      palabra = "";
+      game__star.value = "";
+      game__input.value = "";
+      star__position.style.display = "inline";
+    }
+  });
+
+
+  lost.addEventListener('click', ()=>{
+    if ((lost__position.style.display = "none")) {
+      palabra = "";
+      game__star.value = "";
+      game__input.value = "";
+      star__position.style.display = "inline";
+    }
+  })
+};

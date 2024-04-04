@@ -1,7 +1,42 @@
+<section class="star__game">
+  <div class="star__position">
+    <h2 class="option__munu">Inicio</h2>
+    <h3 class="option__game star__text">Añadir una palabra:</h3>
+    <input class="game__star" type="text" />
+    <button class="star__star" id="iniciar__juego">Iniciar Juego</button>
+    <button class="star__aleatorio">palabra aleatoria</button>
+  </div>
+</section>
+
+<section class="winner">
+  <div class="winer__position">
+    <h2 class="option__munu">¡Has adivinado! 😎</h2>
+    <button class="star__star winner">jugar de nuevo</button>
+  </div>
+</section>
+
+<section class="you__lost">
+  <div class="lost__position">
+    <h2 class="option__munu">Has Perdido 😧</h2>
+    <button class="star__star lost">Iniciar nuevo juego</button>
+  </div>
+</section>
+
 <section class="option">
   <div class="option__position">
-    <img class="option__close"  src="../public/option__close.png" alt="">
-    <!-- <h2>Creado por: <a href="">Juan Garcia</a></h2> -->
+    <img class="option__close" src="../public/option__close.png" alt="" />
+    <h3 class="option__munu">Menú de juego</h3>
+    <h4 class="option__game">¿Cómo funciona?</h4>
+    <p class="option_paragrap">
+      Debes intenta adivinar una palabra, antes de que se complete el dibujo.
+    </p>
+    <h4 class="option__game">¿Qué es el abecedario?</h4>
+    <p class="option_paragraph">
+      Se colocará en verde una letra que hayas adivinado
+      <span class="option__b">"B"</span>; se colocará en rojo una letra que no
+      esté en la palabra por adivinar <span class="option__x">"X"</span>.
+    </p>
+    <h3 class="option__author">Creado por: <a href="">Juan Garcia</a></h3>
   </div>
 </section>
 
@@ -44,7 +79,7 @@
 
   <section class="game__guess">
     <div class="input">
-      <label class="game__label" for="game__input">adivina la palabra :</label>
+      <label class="game__label" for="game__input"></label>
       <input class="game__palabra" id="game__input" type="text" />
     </div>
     <button class="game__send buttom">
@@ -57,7 +92,7 @@
 
   <section class="game__character">
     <h2 class="game__text">
-      intentos ( <span class="incrementar">0</span> / 7 )
+      intentos (<span class="incrementar"></span> / 7)
     </h2>
     <picture class="images">
       <img class="palo" src="../public/personaje/palo.png" alt="palo" />
@@ -69,6 +104,4 @@
       <img class="piernas" src="../public/personaje/piernas.png" alt="palo" />
     </picture>
   </section>
-
-
 </main>

@@ -21,8 +21,7 @@ body {
     "header"
     "game__guess"
     "game__words"
-    "game__character"
-    "footer";
+    "game__character";
 }
 
 .game__header {
@@ -39,6 +38,7 @@ body {
 .fa-circle-question {
   margin-top: 5px;
   font-size: 28px;
+  cursor: pointer;
 }
 
 .fa-circle-question:hover {
@@ -92,6 +92,7 @@ body {
   border-bottom: 3px solid white;
   margin-top: 20px;
   outline: none;
+  text-align: center;
 }
 
 .buttom {
@@ -102,6 +103,7 @@ body {
   background-color: black;
   color: white;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .game__send:hover {
@@ -131,19 +133,6 @@ body {
   font-size: 25px;
 }
 
-.footer {
-  grid-area: footer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
-  height: 10svh;
-  color: white;
-  font-size: 10px;
-  background-color: black;
-  text-align: center;
-}
-
 a {
   color: rgb(221, 124, 91);
 }
@@ -158,6 +147,7 @@ a {
   right: -0px;
   user-select: none;
   position: absolute;
+  /* display: none; */
 }
 
 .palo__dos {
@@ -165,6 +155,7 @@ a {
   left: -27px;
   user-select: none;
   position: absolute;
+  /* display: none; */
 }
 
 .cabeza {
@@ -174,6 +165,7 @@ a {
   z-index: 20;
   user-select: none;
   position: absolute;
+  /* display: none; */
 }
 
 .torso {
@@ -183,6 +175,7 @@ a {
   z-index: 10;
   user-select: none;
   position: absolute;
+  /* display: none; */
 }
 
 .mano__uno {
@@ -191,6 +184,7 @@ a {
   left: -6px;
   user-select: none;
   position: absolute;
+  /* display: none; */
 }
 
 .mano__dos {
@@ -199,6 +193,7 @@ a {
   left: 70px;
   user-select: none;
   position: absolute;
+  /* display: none; */
 }
 
 .piernas {
@@ -207,19 +202,107 @@ a {
   left: 20px;
   user-select: none;
   position: absolute;
+  /* display: none; */
+}
+
+.star__position {
+  background-color: rgb(62, 62, 62);
+  border: 5px solid rgb(0, 0, 0);
+  width: 270px;
+  height: auto;
+  z-index: 100;
+  left: 25px;
+  top: 200px;
+  border-radius: 20px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  line-height: 2.5em;
+  position: absolute;
+  padding: 10px;
+}
+
+.star__text {
+  text-align: center;
+}
+
+.game__star {
+  text-align: center;
+  padding: 20px;
+  display: block;
+  margin: 15px auto;
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.star__star {
+  margin: 10px;
+  padding: 1em;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: 900;
+  background-color: #f4913a;
+  color: white;
+  border: none;
+}
+
+.winner {
+  margin-left: 40px;
+  display: block;
+  margin: 0 auto;
+}
+
+.star__aleatorio {
+  margin: 10px;
+  padding: 1em;
+  display: block;
+  margin: 15px auto;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: 900;
+  background-color: #000000;
+  color: white;
+  border: none;
 }
 
 .option__position {
   background-color: rgb(62, 62, 62);
   border: 5px solid rgb(0, 0, 0);
-  width: 300px;
-  height: 400px;
-  z-index: 100;
-  top: 250px;
-  left: 50px;
+  width: 270px;
+  height: auto;
+  z-index: 200;
+  left: 10px;
+  top: 130px;
   border-radius: 20px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  line-height: 2.5em;
   position: absolute;
+  padding: 10px;
   display: none;
+}
+
+.option__munu {
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.option_paragrap {
+  margin-bottom: 25px;
+}
+
+.option__author {
+  text-align: center;
+  font-size: 15px;
+  margin-top: 15px;
 }
 
 .option__close {
@@ -228,6 +311,57 @@ a {
   position: absolute;
   top: -15px;
   right: -18px;
+  cursor: pointer;
+}
+
+.option__b {
+  color: greenyellow;
+}
+
+.option__x {
+  color: red;
+}
+
+.option__game {
+  text-decoration: underline;
+}
+
+.winer__position {
+  background-color: rgb(62, 62, 62);
+  border: 5px solid rgb(0, 0, 0);
+  width: 270px;
+  height: auto;
+  z-index: 50;
+  left: 25px;
+  top: 300px;
+  border-radius: 20px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  line-height: 2.5em;
+  position: absolute;
+  padding: 10px;
+  display: none;
+}
+
+.lost__position {
+  background-color: rgb(62, 62, 62);
+  border: 5px solid rgb(0, 0, 0);
+  width: 270px;
+  height: auto;
+  z-index: 50;
+  left: 25px;
+  top: 300px;
+  border-radius: 20px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  line-height: 2.5em;
+  position: absolute;
+  padding: 10px;
+  display: none;
 }
 
 @media (min-width: 1024px) {
@@ -240,5 +374,29 @@ a {
     letter-spacing: 1.5px;
     line-height: 15px;
     margin-bottom: 70px;
+  }
+
+  .option__position {
+    width: 400px;
+    top: 250px;
+    left: 450px;
+  }
+
+  .star__position {
+    width: 400px;
+    top: 250px;
+    left: 450px;
+  }
+
+  .winer__position {
+    width: 400px;
+    top: 250px;
+    left: 450px;
+  }
+
+  .lost__position {
+    width: 400px;
+    top: 250px;
+    left: 450px;
   }
 }
