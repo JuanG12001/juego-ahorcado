@@ -60,7 +60,7 @@ body {
   display: flex;
   flex-direction: row;
   list-style: none;
-  font-size: 13px;
+  font-size: 10px;
   letter-spacing: 4px;
 }
 
@@ -75,17 +75,13 @@ body {
   background-color: #0b2a55;
 }
 
-.game__label {
-  position: absolute;
-  text-transform: uppercase;
-  top: 110px;
-}
-
 .input {
-  padding: 20px;
+  padding: 10px;
+  margin-bottom: 15px;
 }
 
 .game__palabra {
+  width: 100%;
   padding: 20px;
   font-family: inherit;
   background: none;
@@ -94,11 +90,12 @@ body {
   text-transform: uppercase;
   font-size: 1.5em;
   border-bottom: 3px solid white;
+  margin-top: 20px;
   outline: none;
 }
 
 .buttom {
-  margin: 20px;
+  margin: 0px 20px;
   padding: 10px;
   font-size: 40px;
   border: none;
@@ -130,7 +127,8 @@ body {
   text-transform: uppercase;
   letter-spacing: 1.5px;
   line-height: 15px;
-  margin-bottom: 70px;
+  margin-bottom: 30px;
+  font-size: 25px;
 }
 
 .footer {
@@ -152,6 +150,7 @@ a {
 
 .images {
   position: relative;
+  margin-right: 20px;
 }
 
 .palo {
@@ -234,5 +233,12 @@ a {
 @media (min-width: 1024px) {
   .game__abc {
     font-size: 30px;
+  }
+
+  .game__text {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 15px;
+    margin-bottom: 70px;
   }
 }
