@@ -67,8 +67,14 @@ export const App = (elementId) => {
       intentos++;
       incrementar.textContent = intentos;
       imagenes[intentos].style.display = "inline";
-      perdiste(intentos, lost__position, game__star,game__send,game__input);
-    } 
+      if(intentos === 7){
+        game__send.disabled = true;
+        game__input.disabled = true;
+        setTimeout(() => {
+          perdiste(intentos, lost__position, game__star,game__send,game__input);
+        }, 200);
+      }
+    }
   });
 
   winner.addEventListener("click", () => {

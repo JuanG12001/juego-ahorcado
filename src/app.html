@@ -1,29 +1,20 @@
-<section class="star__game">
-  <div class="star__position">
-    <h2 class="option__munu">Inicio</h2>
-    <h3 class="option__game star__text">Añadir una palabra:</h3>
-    <input class="game__star" type="text" />
-    <button class="star__star" id="iniciar__juego">Iniciar Juego</button>
-    <button class="star__aleatorio">palabra aleatoria</button>
-  </div>
-</section>
 
-<section class="winner">
-  <div class="winer__position">
+<section class="winer__position">
+  <div class="winner">
     <h2 class="option__munu">¡Has adivinado! 😎</h2>
     <button class="star__star winner">jugar de nuevo</button>
   </div>
 </section>
 
-<section class="you__lost">
-  <div class="lost__position">
+<section class="lost__position">
+  <div class="you__lost ">
     <h2 class="option__munu">Has Perdido 😧</h2>
     <button class="star__star lost">Iniciar nuevo juego</button>
   </div>
 </section>
 
-<section class="option">
-  <div class="option__position">
+<section class="option__position">
+  <div class="option">
     <img class="option__close" src="../public/option__close.png" alt="" />
     <h3 class="option__munu">Menú de juego</h3>
     <h4 class="option__game">¿Cómo funciona?</h4>
@@ -41,10 +32,21 @@
 </section>
 
 <main class="game">
+  
   <header class="game__header">
     <h1 class="game__logo">Juego Ahorcado</h1>
     <h2 class="game__option"><i class="fa-solid fa-circle-question"></i></h2>
   </header>
+
+  <section class="star__position position__center">
+    <div class="star__game">
+      <h2 class="option__menu">Inicio</h2>
+      <h3 class="option__game star__text">Añadir una palabra:</h3>
+      <input class="game__star" type="text" />
+      <button class="star__star" id="iniciar__juego">Iniciar Juego</button>
+      <button class="star__aleatorio">palabra aleatoria</button>
+    </div>
+  </section>
 
   <section class="game__words">
     <ul class="game__abc">
@@ -91,9 +93,11 @@
   </section>
 
   <section class="game__character">
+
     <h2 class="game__text">
       intentos (<span class="incrementar"></span> / 7)
     </h2>
+
     <picture class="images">
       <img class="palo" src="../public/personaje/1.png" alt="palo" />
       <img class="palo__dos" src="../public/personaje/2.png" alt="palo-dos" />
@@ -104,4 +108,5 @@
       <img class="piernas" src="../public/personaje/7.png" alt="piernas" />
     </picture>
   </section>
+
 </main>

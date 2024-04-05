@@ -10,11 +10,10 @@ body {
   font-style: normal;
 }
 
+
 .game {
-  max-width: 1400px;
-  margin: 0 auto;
+  max-width: 1400%;
   display: grid;
-  height: 100svh;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(4, max-content);
   grid-template-areas:
@@ -22,6 +21,8 @@ body {
     "game__guess"
     "game__words"
     "game__character";
+  align-items: center;
+  position: relative;
 }
 
 .game__header {
@@ -193,7 +194,7 @@ a {
   left: 70px;
   user-select: none;
   position: absolute;
-  display: none;
+/* o block, inline-flex, etc. */  display: none;
 }
 
 .piernas {
@@ -205,27 +206,26 @@ a {
   display: none;
 }
 
-.star__position {
+
+.position__center {
+  width: 280px;
+  justify-content: center;
+  text-align: center;
+  z-index: 100;
   background-color: rgb(62, 62, 62);
   border: 5px solid rgb(0, 0, 0);
-  width: 270px;
-  height: auto;
-  z-index: 100;
-  left: 25px;
-  top: 200px;
   border-radius: 20px;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  flex-direction: column;
   line-height: 2.5em;
-  position: absolute;
   padding: 10px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.star__text {
-  text-align: center;
-}
 
 .game__star {
   text-align: center;
@@ -287,6 +287,10 @@ a {
   position: absolute;
   padding: 10px;
   display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .option__munu {
@@ -343,6 +347,9 @@ a {
   position: absolute;
   padding: 10px;
   display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .lost__position {
@@ -362,6 +369,9 @@ a {
   position: absolute;
   padding: 10px;
   display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media (min-width: 1024px) {
@@ -369,34 +379,9 @@ a {
     font-size: 30px;
   }
 
-  .game__text {
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    line-height: 15px;
-    margin-bottom: 70px;
-  }
-
-  .option__position {
-    width: 400px;
-    top: 250px;
-    left: 450px;
-  }
-
-  .star__position {
-    width: 400px;
-    top: 250px;
-    left: 450px;
-  }
-
-  .winer__position {
-    width: 400px;
-    top: 250px;
-    left: 450px;
-  }
-
-  .lost__position {
-    width: 400px;
-    top: 250px;
-    left: 450px;
+  .option__position{
+    padding: 35px;
+    width: 450px;
   }
 }
+
