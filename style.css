@@ -147,7 +147,7 @@ a {
   right: -0px;
   user-select: none;
   position: absolute;
-  /* display: none; */
+  display: none;
 }
 
 .palo__dos {
@@ -155,7 +155,7 @@ a {
   left: -27px;
   user-select: none;
   position: absolute;
-  /* display: none; */
+  display: none;
 }
 
 .cabeza {
@@ -165,7 +165,7 @@ a {
   z-index: 20;
   user-select: none;
   position: absolute;
-  /* display: none; */
+  display: none;
 }
 
 .torso {
@@ -175,7 +175,7 @@ a {
   z-index: 10;
   user-select: none;
   position: absolute;
-  /* display: none; */
+  display: none;
 }
 
 .mano__uno {
@@ -184,7 +184,7 @@ a {
   left: -6px;
   user-select: none;
   position: absolute;
-  /* display: none; */
+  display: none;
 }
 
 .mano__dos {
@@ -193,7 +193,7 @@ a {
   left: 70px;
   user-select: none;
   position: absolute;
-  /* display: none; */
+  display: none;
 }
 
 .piernas {
@@ -202,7 +202,7 @@ a {
   left: 20px;
   user-select: none;
   position: absolute;
-  /* display: none; */
+  display: none;
 }
 
 .star__position {

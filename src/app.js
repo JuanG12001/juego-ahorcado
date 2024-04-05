@@ -27,9 +27,9 @@ export const App = (elementId) => {
   const winner = document.querySelector(".winner");
   const game__abc = document.querySelectorAll(".game__abc .letter");
   const incrementar = document.querySelector(".incrementar");
-  const lost__position = document.querySelector('.lost__position')
-  const lost = document.querySelector('.lost')
-
+  const lost__position = document.querySelector(".lost__position");
+  const lost = document.querySelector(".lost");
+  const imagenes = document.querySelectorAll("img");
   //listeners
   game__option.addEventListener("click", () => {
     opciones.style.display = "inline";
@@ -45,9 +45,9 @@ export const App = (elementId) => {
       star__position.style.display = "none";
       game__send.disabled = false;
       game__input.disabled = false;
-      intentos = 0
-      incrementar.textContent = 0
-      palabra = ""
+      intentos = 0;
+      incrementar.textContent = 0;
+      palabra = "";
     }
   });
 
@@ -56,11 +56,12 @@ export const App = (elementId) => {
       winer__position.style.display = "inline";
       game__send.disabled = true;
       game__input.disabled = true;
-    }else if (intentos < 7) {
+    } else if (intentos < 7) {
       intentos++;
       incrementar.textContent = intentos;
-    }else if(intentos === 7){
-      lost__position.style.display = 'inline'
+      imagenes[intentos - 0].style.display = "inline";
+    } else if (intentos === 7) {
+      lost__position.style.display = "inline";
       palabra = "";
       game__star.value = "";
       game__input.value = "";
@@ -78,13 +79,13 @@ export const App = (elementId) => {
     }
   });
 
-
-  lost.addEventListener('click', ()=>{
+  lost.addEventListener("click", () => {
     if ((lost__position.style.display = "none")) {
       palabra = "";
       game__star.value = "";
       game__input.value = "";
       star__position.style.display = "inline";
+      imagenes.forEach((img) => (img.style.display = "none"));
     }
-  })
+  });
 };
