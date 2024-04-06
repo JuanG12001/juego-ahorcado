@@ -3,19 +3,16 @@ import { perdiste } from "./components/mensaje-perdiste";
 
 let palabra = " ";
 let intentos = 0;
-const boton = true;
 
 export const App = (elementId) => {
+
   (() => {
     const app = document.createElement("div");
     app.innerHTML = html;
     document.querySelector(elementId).append(app);
   })();
 
-  //referencias HTML
-  /**
-   * @type {HTMLElement}
-   */
+
   const opciones = document.querySelector(".option__position");
   const game__option = document.querySelector(".game__option");
   const option__close = document.querySelector(".option__close");
@@ -97,6 +94,17 @@ export const App = (elementId) => {
   game__send.addEventListener("click", () => {
     const letraIngresada = game__input.value.toUpperCase();
     let aciertos = 0; 
+  
+    if (game__input.value.length === palabra.length) {
+      if (game__input.value === palabra) {
+        winer__position.style.display = "inline";
+        game__send.disabled = true;
+        game__input.disabled = true;
+        secret__winner.textContent = `"${palabra}"`;
+        game__reload.disabled = true;
+        return; 
+      }
+    }
   
     for (let i = 0; i < palabra.length; i++) {
       if (palabra[i] === letraIngresada) {

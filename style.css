@@ -61,7 +61,7 @@ body {
   display: flex;
   flex-direction: row;
   list-style: none;
-  font-size: 10px;
+  font-size: 30px;
   letter-spacing: 4px;
 }
 
