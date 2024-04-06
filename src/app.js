@@ -26,7 +26,7 @@ export const App = (elementId) => {
   const winer__position = document.querySelector(".winer__position");
   const game__send = document.querySelector(".game__send");
   const winner = document.querySelector(".winner");
-  const game__abc = document.querySelectorAll(".game__abc .letter");
+  const game__abc = document.querySelector(".game__abc");
   const incrementar = document.querySelector(".incrementar");
   const lost__position = document.querySelector(".lost__position");
   const lost = document.querySelector(".lost");
@@ -34,21 +34,29 @@ export const App = (elementId) => {
   const secret__text = document.querySelector('.secret__text')
   const secret__winner = document.querySelector('.secret__winner')
   const game__reload = document.querySelector('.game__reload')
-  
+  const nuevoElementoLi = document.createElement('li');
+
   //block
   game__input.disabled = true;
   game__send.disabled = true;
   game__reload.disabled = true;
 
-
   //listeners
-
   game__star.addEventListener('input',(event)=>{
     let inputValue = event.target.value;
     let filteredValue = inputValue.replace(/[^A-Za-z]/g, ''); 
     event.target.value = filteredValue; 
     event.target.value = filteredValue.toUpperCase();
+    game__abc.innerHTML = '';
+    const palabras = game__star.value.split(/\s+/);
+    palabras.forEach(function(palabra) {
+        if (palabra !== '') { 
+            nuevoElementoLi.textContent = '_'.repeat(palabra.length); 
+            game__abc.appendChild(nuevoElementoLi);
+        }
+    });
   })
+
 
   game__input.addEventListener('input',(event)=>{
     let inputValue = event.target.value;
@@ -75,28 +83,50 @@ export const App = (elementId) => {
       game__reload.disabled = false;
       intentos = 0;
       incrementar.textContent = 0;
+  
+      
+      game__abc.innerHTML = '';
+      for (let i = 0; i < palabra.length; i++) {
+        const nuevoElementoLi = document.createElement('li');
+        nuevoElementoLi.textContent = '_';
+        game__abc.appendChild(nuevoElementoLi);
+      }
     }
   });
 
   game__send.addEventListener("click", () => {
-    if (game__input.value === game__star.value) {
-      winer__position.style.display = "inline";
-      game__send.disabled = true;
-      game__input.disabled = true;
-      secret__winner.textContent = `"${palabra}"`
-      game__reload.disabled = true;
-    } else if (intentos < 7) {
+    const letraIngresada = game__input.value.toUpperCase();
+    let aciertos = 0; 
+  
+    for (let i = 0; i < palabra.length; i++) {
+      if (palabra[i] === letraIngresada) {
+        game__abc.children[i].textContent = letraIngresada;
+        aciertos++;
+      }
+    }
+  
+    if (aciertos === 0) {
       intentos++;
       incrementar.textContent = intentos;
       imagenes[intentos].style.display = "inline";
-      if(intentos === 7){
+  
+      if (intentos === 7) {
         game__send.disabled = true;
         game__input.disabled = true;
         game__reload.disabled = true;
-        secret__text.textContent = `"${palabra}"`
+        secret__text.textContent = `"${palabra}"`;
         setTimeout(() => {
-          perdiste(intentos, lost__position, game__star,game__send,game__input,game__reload);
+          game__abc.innerHTML = '';
+          perdiste(intentos, lost__position, game__star, game__send, game__input, game__reload);
         }, 200);
+      }
+    } else {
+      if (game__abc.textContent === palabra) {
+        winer__position.style.display = "inline";
+        game__send.disabled = true;
+        game__input.disabled = true;
+        secret__winner.textContent = `"${palabra}"`;
+        game__reload.disabled = true;
       }
     }
   });
@@ -110,6 +140,7 @@ export const App = (elementId) => {
       game__input.value = "";
       intentos = 0;
       incrementar.textContent = 0;
+      game__abc.innerHTML = '';
       imagenes.forEach((img) => (img.style.display = "none"));
   })
 
@@ -122,6 +153,7 @@ export const App = (elementId) => {
       game__input.value = "";
       star__position.style.display = "inline";
       imagenes.forEach((img) => (img.style.display = "none"));
+      game__abc.innerHTML = '';
     }
   });
 
@@ -134,9 +166,9 @@ export const App = (elementId) => {
       game__input.value = "";
       star__position.style.display = "inline";
       imagenes.forEach((img) => (img.style.display = "none"));
+      game__abc.innerHTML = '';
     }
   });
 
 
-  
 };

@@ -250,6 +250,8 @@ a {
   background-color: #f4913a;
   color: white;
   border: none;
+  cursor: pointer;
+  width: 100%;
 }
 
 .winner {
@@ -269,6 +271,8 @@ a {
   background-color: #000000;
   color: white;
   border: none;
+  cursor: pointer;
+  width: 100%;
 }
 
 .option__position {
@@ -289,7 +293,7 @@ a {
   padding: 10px;
   display: none;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -375,6 +379,15 @@ a {
   transform: translate(-50%, -50%);
 }
 
+.star__text{
+  line-height: 2em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+
+
+
 @media (min-width: 1024px) {
   .game__abc {
     font-size: 30px;
@@ -383,6 +396,8 @@ a {
   .option__position{
     padding: 35px;
     width: 450px;
+    top: 50%;
   }
+
 }
 
