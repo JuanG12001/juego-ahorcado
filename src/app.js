@@ -41,7 +41,7 @@ export const App = (elementId) => {
   //listeners
   game__star.addEventListener("input", (event) => {
     let inputValue = event.target.value;
-    let filteredValue = inputValue.replace(/[^A-Za-z]/g, "");
+    let filteredValue = inputValue.replace(/[^A-Za-zñÑ]/g, "");
     event.target.value = filteredValue;
     event.target.value = filteredValue.toUpperCase();
     game__abc.innerHTML = "";
@@ -56,11 +56,10 @@ export const App = (elementId) => {
 
   game__input.addEventListener("input", (event) => {
     let inputValue = event.target.value;
-    let filteredValue = inputValue.replace(/[^A-Za-z]/g, "");
+    let filteredValue = inputValue.replace(/[^A-Za-zñÑ]/g, ""); 
     event.target.value = filteredValue;
     event.target.value = filteredValue.toUpperCase();
-  });
-
+});
   game__option.addEventListener("click", () => {
     opciones.style.display = "inline";
     option__close.style.display = "inline";
