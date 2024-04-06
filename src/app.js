@@ -31,12 +31,31 @@ export const App = (elementId) => {
   const lost__position = document.querySelector(".lost__position");
   const lost = document.querySelector(".lost");
   const imagenes = document.querySelectorAll("img");
-
+  const secret__text = document.querySelector('.secret__text')
+  const secret__winner = document.querySelector('.secret__winner')
+  const game__reload = document.querySelector('.game__reload')
+  
   //block
   game__input.disabled = true;
   game__send.disabled = true;
+  game__reload.disabled = true;
+
 
   //listeners
+
+  game__star.addEventListener('input',(event)=>{
+    let inputValue = event.target.value;
+    let filteredValue = inputValue.replace(/[^A-Za-z]/g, ''); 
+    event.target.value = filteredValue; 
+    event.target.value = filteredValue.toUpperCase();
+  })
+
+  game__input.addEventListener('input',(event)=>{
+    let inputValue = event.target.value;
+    let filteredValue = inputValue.replace(/[^A-Za-z]/g, ''); 
+    event.target.value = filteredValue; 
+    event.target.value = filteredValue.toUpperCase();
+  })
 
   game__option.addEventListener("click", () => {
     opciones.style.display = "inline";
@@ -53,6 +72,7 @@ export const App = (elementId) => {
       star__position.style.display = "none";
       game__send.disabled = false;
       game__input.disabled = false;
+      game__reload.disabled = false;
       intentos = 0;
       incrementar.textContent = 0;
     }
@@ -63,6 +83,8 @@ export const App = (elementId) => {
       winer__position.style.display = "inline";
       game__send.disabled = true;
       game__input.disabled = true;
+      secret__winner.textContent = `"${palabra}"`
+      game__reload.disabled = true;
     } else if (intentos < 7) {
       intentos++;
       incrementar.textContent = intentos;
@@ -70,17 +92,32 @@ export const App = (elementId) => {
       if(intentos === 7){
         game__send.disabled = true;
         game__input.disabled = true;
+        game__reload.disabled = true;
+        secret__text.textContent = `"${palabra}"`
         setTimeout(() => {
-          perdiste(intentos, lost__position, game__star,game__send,game__input);
+          perdiste(intentos, lost__position, game__star,game__send,game__input,game__reload);
         }, 200);
       }
     }
   });
 
+  game__reload.addEventListener('click',()=>{
+      star__position.style.display = "inline";
+      game__send.disabled = true;
+      game__input.disabled = true;
+      game__reload.disabled = true;
+      game__star.value = "";
+      game__input.value = "";
+      intentos = 0;
+      incrementar.textContent = 0;
+      imagenes.forEach((img) => (img.style.display = "none"));
+  })
+
   winner.addEventListener("click", () => {
     if ((winer__position.style.display = "none")) {
       game__send.disabled = true;
       game__input.disabled = true;
+      game__reload.disabled = true;
       game__star.value = "";
       game__input.value = "";
       star__position.style.display = "inline";
@@ -92,10 +129,14 @@ export const App = (elementId) => {
     if ((lost__position.style.display = "none")) {
       game__send.disabled = true;
       game__input.disabled = true;
+      game__reload.disabled = true;
       game__star.value = "";
       game__input.value = "";
       star__position.style.display = "inline";
       imagenes.forEach((img) => (img.style.display = "none"));
     }
   });
+
+
+  
 };
