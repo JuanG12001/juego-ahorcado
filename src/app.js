@@ -200,4 +200,5 @@ export const App = (elementId) => {
       game__abc.innerHTML = "";
     }
   });
+  
 };
